@@ -25,7 +25,7 @@ def plot_lattice(size, special_points, title, center):
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.title(title)
-    plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), fancybox=True, shadow=True, ncol=2)
+    #plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), fancybox=True, shadow=True, ncol=2)
     plt.gca().set_aspect('equal', adjustable='box')
     # Set the grid lines to appear at every integer
     plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(1))
@@ -36,29 +36,6 @@ def plot_lattice(size, special_points, title, center):
     #plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(integer=True, prune='both')) 
     
     plt.show()
-
-
-def specify_polynomial():
-    degree = int(input("Enter the degree of the polynomial: "))
-    coefficients = []
-    
-    for i in range(degree, -1, -1):
-        coeff = int(input(f"Enter the coefficient for x^{i}: "))
-        coefficients.append(coeff)
-    
-    polynomial = sum(c * sp.symbols('x')**i for i, c in enumerate(reversed(coefficients)))
-    return polynomial
-
-def test_polynomial(polynomial):
-    while True:
-        try:
-            x_value = int(input("Enter a value of x to test (or type 'exit' to quit): "))
-        except ValueError:
-            print("Exiting...")
-            break
-
-        result = int(polynomial.subs(sp.symbols('x'), x_value))
-        print(f"The value of the polynomial at x = {x_value} is: {result}")
     
 def mod_congruence(value, n, centerY):
     # Compute the standard modulo
@@ -91,7 +68,6 @@ class Switch(tk.Checkbutton):
         return self.var.get()
 
 
-#main()
 ##################
 def generate_command():
     #Clear previous plot
@@ -137,7 +113,8 @@ def generate_command():
 
 # Create the main application window
 root = tk.Tk()
-root.title("Basic GUI Application")
+root.title("Finite Field Varieties")
+root.geometry("500x500")
 
 #Polynomial Entry
 label = tk.Label(root, text="Enter an integral polynomial in the variable x\n Use LaTeX formating for powers and * for multiplication e.g. 3*x^2")
