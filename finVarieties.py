@@ -60,6 +60,14 @@ def test_polynomial(polynomial):
         result = int(polynomial.subs(sp.symbols('x'), x_value))
         print(f"The value of the polynomial at x = {x_value} is: {result}")
     
+def mod_congruence(value, n, centerY):
+    # Compute the standard modulo
+    mod_value = value % n
+    
+    # Adjust to fit within the range -n to n
+    if (mod_value > n // 2) and centerY:
+        return mod_value - n
+    return mod_value
 
 class Switch(tk.Checkbutton):
     def __init__(self, master=None, **kwargs):
@@ -93,42 +101,33 @@ def generate_command():
 
     # LaTeX string (as an example)
     latex_poly = EntryPoly.get()
-    center = switch.get()
-    print(center)
+    center = switchX.get()
+    centerY = switchY.get()
 
     # Convert LaTeX to a sympy expression
     poly_expr = sp.sympify(latex_poly.replace('^', '**'))
-
-    # Print the Python expression
-    print(poly_expr)
-
     # Convert sympy expression to a Python function
     poly_func = sp.lambdify(x, poly_expr, 'numpy')  
 
     p = int(entryPrime.get())
     n = int(entryPower.get())
-    print(p)
-    print(n)
 
     if center:
         index = range(math.floor(-0.5*(p**n - 1)), math.ceil(0.5*(p**n - 1))+1)
     else:
         index = range(0, p**n)
     
+    #Apply the function
     y = []
     for i in index:
-        y.append(int( poly_func(i)) % (p**n))
+        y.append(mod_congruence(int(poly_func(i)), p**n, centerY) )
     
     # Example usage
     lattice_size = p**n
     special_points = [[i] for i in index]
-    print(special_points)
     for i in range(0, p**n):
-        print(i)
         special_points[i].append(y[i])
         special_points[i] = tuple(special_points[i])
-
-    print(special_points)
 
     plot_lattice(lattice_size, special_points, "plot of $"+latex_poly+"$ mod $"+str(p)+"^"+str(n)+"$", center )
 
@@ -162,8 +161,10 @@ entryPower.pack(pady=10)
 # Create a variable to store the state of the switch
 var = tk.BooleanVar()
 # Create a switch widget
-switch = Switch(root, text="Center", bg='lightcoral')
-switch.pack(pady=20)
+switchX = Switch(root, text="Center X", bg='lightcoral')
+switchX.pack(pady=20)
+switchY = Switch(root, text="Center Y", bg='lightcoral')
+switchY.pack(pady=20)
 
 
 #Generate graph button
