@@ -141,7 +141,7 @@ root = tk.Tk()
 root.title("Basic GUI Application")
 
 #Polynomial Entry
-label = tk.Label(root, text="Enter an integral polynomial in the variable x")
+label = tk.Label(root, text="Enter an integral polynomial in the variable x\n Use LaTeX formating for powers and * for multiplication e.g. 3*x^2")
 label.pack(pady=10)
 EntryPoly = tk.Entry(root)
 EntryPoly.pack(pady=10)
