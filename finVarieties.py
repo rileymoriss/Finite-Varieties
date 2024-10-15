@@ -163,7 +163,7 @@ root.title("Finite Field Varieties")
 root.geometry("500x500")
 
 #Polynomial Entry
-label = tk.Label(root, text="Enter an integral polynomial in the variable x\n Use LaTeX formating for powers and * for multiplication e.g. 3*x^2")
+label = tk.Label(root, text="Enter an integral polynomial in the variable x\n Use LaTeX formating for powers and * for multiplication e.g. 3*x^2. For elliptic curves enter only the x part of y^2 = f(x)")
 label.pack(pady=10)
 EntryPoly = tk.Entry(root)
 EntryPoly.pack(pady=10)
