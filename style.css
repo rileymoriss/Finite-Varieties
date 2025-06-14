@@ -1,0 +1,97 @@
+/*General syling*/
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+h3, h4 {
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    height: 100vh;
+}
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+.options {
+    width: 320px;
+    min-width: 220px;
+    max-width: 400px;
+    background: #222831;
+    color: #fff;
+    box-shadow: 2px 0 8px #0001;
+    box-sizing: border-box;
+    padding: 32px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.options h3 {
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #00adb5;
+}
+.options h4 {
+    font-weight: 500;
+    color: #c4fbff;
+    text-align: center;
+}
+
+/* Function area styling*/
+.function-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.function-input {
+    display: flex;
+    gap: 8px;
+}
+.function-input input {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+}
+.function-input button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background: #00adb5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.function-input button:hover {
+    background: #008891;
+}
+.plot-area {
+    flex: 1;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+#plot {
+    width: 90vw;
+    height: 90vh;
+    max-width: 1000px;
+    max-height: 800px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px #0002;
+}
+
+
