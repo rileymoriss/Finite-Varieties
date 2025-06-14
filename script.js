@@ -84,6 +84,8 @@ function plotFunctions() {
         margin: { t: 30 },
         xaxis: { title: 'x', zeroline: true, showgrid: true },
         yaxis: { title: 'y', zeroline: true, showgrid: true },
+        mode: 'markers',
+        //Puts the legend at the top left
         legend: { x: 0, y: 1 },
         plot_bgcolor: '#fff',
         paper_bgcolor: '#fff',
