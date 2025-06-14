@@ -45,6 +45,12 @@ body {
     color: #c4fbff;
     text-align: center;
 }
+input::placeholder {
+    color: #000000;
+    font-style: italic;
+    font-size: 14px;
+    opacity: 0.2; /* Make sure it's fully visible */
+}
 
 /* Function area styling*/
 .function-list {

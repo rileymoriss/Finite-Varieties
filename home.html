@@ -11,29 +11,33 @@
         <!-- Options Panel -->
         <div class="options">
             <h3>Varities Over Finite Fields</h3>
+
             <!-- Description -->
             <h4>Instructions</h4>
-            <p>Enter an integral polynomial to plot it over a finite field. </p>
-            <p> The syntax is //</p>
+            <p>Enter an integral polynomial to plot it over a finite cyclic ring, \(\mathbb{Z}/m\mathbb{Z}\). </p>
+            <p> The syntax is LaTeX syntax for the polynomials.</p>
             <p> If the function is in one variable it will plot  \(y = f(x)\)</p>
             <p> If the function is in two variables it will plot \(f(x, y) = 0\)</p>
 
             <!-- Options -->
             <h4>Options</h4>
-            <p>Choose the finite field</p>
-            <p>Should be really able to plot it over a finite abelian group? A finite field or a finite cyclic group.</p>
-            <p> Syntax //</p>
-            <p>Options for the graph.... Toggle centering</p>
+            <p>Choose the cardinality of the cyclic group: <input type="number" id="groupOrder" value="5" min="1" /></p>
+            <p>Toggle centering: x -> <input type="checkbox" id="toggleCenteringX" />, y -> <input type="checkbox" id="toggleCenteringY" /></p>
+            <p>Connect the dots -> <input type="checkbox" id="toggleConnecting" /></p>
 
 
             <!-- Function Input -->
             <h4>Polynomial Input</h4>
-            <div class="function-list" id="functionList">
-                <div class="function-input">
+            <div class="function-input">
                     <input type="text" id="functionInput" placeholder="e.g. x^2 + 1" />
                     <button onclick="addFunction()">Add</button>
-                </div>
             </div>
+            <div class="function-list" id="functionList"><!--Dynamically filled--></div>
+
+            <!-- Notes for the finite field setting-->
+            <h4>Facts about finite fields</h4>
+            <p>Finite fields are determined by their cardinality, with all finite fields being of cardinality \(p^n\) for some prime \(p\). The multiplicative structure of \(\mathbb{F}_{p^n}\) is given by \(\mathbb{F}_{p^n}^* \cong \mathbb{Z}/(p^n - 1)\mathbb{Z}\). Because the additive group is a \(\mathbb{Z}/p\mathbb{Z}\) vector space it is clear that the additive structure is just \(\mathbb{F}_{p^n}^+ \cong \big( \mathbb{Z}/p\mathbb{Z}\big)^n\). This makes the most obvious way of plotting the elements of a finite field as tuples in the cyclic group of the same order, hence we dont really have a nice way of plotting in the plane any finite field other than the cyclic ones.</p>
+
         </div>
 
         <!-- Plot Area -->
