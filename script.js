@@ -76,7 +76,14 @@ function plotFunctions() {
             }
         }
         //Added to the traces array
-        return { x, y, mode: 'lines', name: fstr };
+        const connect = document.getElementById('toggleConnecting').checked;
+        if (connect){
+            //If connect lines is checked, return a line trace
+            return { x, y, mode: 'lines', name: fstr };
+        }else {
+            //If connect lines is not checked, return a marker trace
+            return { x, y, mode: 'markers', name: fstr };
+        }
     });
 
     //Plot
@@ -84,7 +91,7 @@ function plotFunctions() {
         margin: { t: 30 },
         xaxis: { title: 'x', zeroline: true, showgrid: true },
         yaxis: { title: 'y', zeroline: true, showgrid: true },
-        mode: 'markers',
+
         //Puts the legend at the top left
         legend: { x: 0, y: 1 },
         plot_bgcolor: '#fff',
