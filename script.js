@@ -59,7 +59,7 @@ function plotFunctions() {
     //Initialise the x values. Use the values from -groupOrder to groupOrder
     //Use the toggles to determine what is DISPLAYED. Always compute all. Simplifies the logic.
     const x = [];
-    for (let i = -groupOrder; i <= groupOrder; i += 1) x.push(i);
+    for (let i = -2*groupOrder; i <= 2*groupOrder; i += 1) x.push(i);
 
     // Create a new list called traces and add the functions into it after modification
     const traces = functions.map(fstr => {
@@ -75,9 +75,9 @@ function plotFunctions() {
                 y.push(NaN);
             }
         }
-        //Added to the traces array
+        //Added to the traces array, mode of graph is determined by the toggle
         const connect = document.getElementById('toggleConnecting').checked;
-        if (connect){
+        if (!connect){
             //If connect lines is checked, return a line trace
             return { x, y, mode: 'lines', name: fstr };
         }else {

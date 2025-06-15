@@ -14,16 +14,14 @@
 
             <!-- Description -->
             <h4>Instructions</h4>
-            <p>Enter an integral polynomial to plot it over a finite cyclic ring, \(\mathbb{Z}/m\mathbb{Z}\). </p>
-            <p> The syntax is \(n*x\) for constants and x^n for exponentiation. e.g. 3*x^2.</p>
-            <p> If the function is in one variable it will plot  \(y = f(x)\)</p>
-            <p> If the function is in two variables it will plot \(f(x, y) = 0\)</p>
+            <p>Enter an integral polynomial to plot it over a finite cyclic ring, \(\mathbb{Z}/m\mathbb{Z}\). The syntax is \(n*x\) for constants and x^n for exponentiation. e.g. 3*x^2. If the function is in one variable it will plot  \(y = f(x)\), if the function is in two variables it will plot \(f(x, y) = 0\). Click and drag on the axis to select a region to zoom in on.</p>
 
             <!-- Options -->
             <h4>Options</h4>
             <p>Choose the cardinality of the cyclic group: <input type="number" id="groupOrder" value="5" min="1" /></p>
-            <p>Toggle centering: x -> <input type="checkbox" id="toggleCenteringX" />, y -> <input type="checkbox" id="toggleCenteringY" /></p>
-            <p>Connect the dots -> <input type="checkbox" id="toggleConnecting" /></p>
+            <!--<p>Toggle centering: x -> <input type="checkbox" id="toggleCenteringX" />, y -> <input type="checkbox" id="toggleCenteringY" /></p>-->
+            <!-- The centering is not so necissary as you can click on the graph to get the segment that you want. -->
+            <p>Disconnect the dots -> <input type="checkbox" id="toggleConnecting" /></p>
 
 
             <!-- Function Input -->
@@ -37,7 +35,7 @@
             <!-- Notes for the finite field setting-->
             <h4>Facts about finite fields</h4>
             <p>Finite fields are determined by their cardinality, with all finite fields being of cardinality \(p^n\) for some prime \(p\). The multiplicative structure of \(\mathbb{F}_{p^n}\) is given by \(\mathbb{F}_{p^n}^* \cong \mathbb{Z}/(p^n - 1)\mathbb{Z}\). Because the additive group is a \(\mathbb{Z}/p\mathbb{Z}\) vector space it is clear that the additive structure is just \(\mathbb{F}_{p^n}^+ \cong \big( \mathbb{Z}/p\mathbb{Z}\big)^n\). This makes the most obvious way of plotting the elements of a finite field as tuples in the cyclic group of the same order, hence we dont really have a nice way of plotting in the plane any finite field other than the cyclic ones.</p>
-
+            <div><!--for some padding--> </div>
         </div>
 
         <!-- Plot Area -->
